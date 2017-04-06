@@ -2,9 +2,14 @@ package lol;
 
 import java.util.Scanner;
 
-public class GPA_Calculator {
+
+public class GPA {
 	
-	public static Double[] GPA(Double[] a){
+	
+	
+
+	public static Double[] GPACalc(Double[] a){
+		
 		
 		Double A = 4.0;
 		Double Am = 3.7;
@@ -33,6 +38,17 @@ public class GPA_Calculator {
 		return(a);
 		
 	}
+	
+	 String TheClass = " ";
+	 Double AvgGPA = 0.0;
+	public GPA (String TheClass, Double AvgGPA){
+		
+		this.TheClass = TheClass;
+		this.AvgGPA = AvgGPA;
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -48,7 +64,7 @@ public class GPA_Calculator {
 			
 		}
 		
-		GPA(a);
+		GPACalc(a);
 
 		double add = 0;
 		
@@ -66,30 +82,49 @@ public class GPA_Calculator {
 
 		char yorn = sc.next().trim().charAt(0);
 		
+		
+		
+		
 		if(yorn == 'y')
 		{
-			
-			System.out.println("Education	3.36");
-			System.out.println("Foreign Language3.34");
-			System.out.println("English		3.33");
-			System.out.println("Music		3.30");
-			System.out.println("Religion	3.22");
-			System.out.println("Biology		3.02");
-			System.out.println("Psychology	2.98");
-			System.out.println("Economics	2.95");
-			System.out.println("Engineering	2.90");
-			System.out.println("Math		2.90");
-			System.out.println("Chemistry	2.78");
-			
-		char[] arr = new char[10];
+			GPA[] P = new GPA[11]; 
+		      P[0] = new GPA("Education", 3.36); 
+		      P[1] = new GPA("Forign Language", 3.34); 
+		      P[2] = new GPA("English", 3.33); 
+		      P[3] = new GPA("Music", 3.3); 
+		      P[4] = new GPA("Religion", 3.22); 
+		      P[5] = new GPA("Biology", 3.02); 
+		      P[6] = new GPA("Psychology", 2.98); 
+		      P[7] = new GPA("Economic", 2.95); 
+		      P[8] = new GPA("Engineering", 2.9); 
+		      P[9] = new GPA("Math", 2.9); 
+		      P[10] = new GPA("Chemistry", 2.78); 
+		      GPA temp = null;
+			 
+		      for(int i = 0; i < P.length; i++) System.out.print(P[i].TheClass + " " + P[i].AvgGPA + "\n");
+		      
+		     System.out.println("What class are you intrested?");
+		     Scanner scanner = new Scanner(System.in);
+			 String klassQ = scanner.nextLine();
 		
+			 for(int i = 0; i < P.length; i++){
+				 if(P[i].TheClass.equals(klassQ)){
+					 int sub = 0;
+					 Double percentage = 0.0;
+					sub = i;
+					 percentage = avg / P[sub].AvgGPA;
+					 percentage *= 100;
+					// percentage = Math.round(avg*10d) / 10d;
+					 System.out.println("You have " + percentage + "% grade than your intrested class");
+					break;
+					
+				 }
+			 }
+
 		}
 		
-		System.out.println("What class are you intrested?");
-	
-		
-		
-		
+		System.out.println("End of Program.");
+
 	}
 
 }
