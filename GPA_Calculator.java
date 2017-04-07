@@ -115,7 +115,9 @@ public class GPA {
 					 percentage = avg / P[sub].AvgGPA;
 					 percentage *= 100;
 					// percentage = Math.round(avg*10d) / 10d;
-					 System.out.println("You have " + percentage + "% grade than your intrested class");
+					percentage = Math.round(percentage*100d) / 100d;
+					 if(percentage > 100) System.out.println("You have " + percentage + "% higher grade than your intrested class");
+					 else System.out.println("You have " + percentage + "% grade than your intrested class");
 					break;
 					
 				 }
